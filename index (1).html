@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marilia Arruda | Engenharia de Software</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --rosa: #c0386b;
+      --rosa-escuro: #8f1f4a;
+      --rosa-claro: #f7e8ef;
+      --escuro: #12111a;
+      --escuro2: #1c1b2b;
+      --branco: #fff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--escuro); color: var(--branco); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 48px;
+      background: rgba(18,17,26,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--rosa); letter-spacing: 0.05em; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: #e87aaa; }
+
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; padding: 120px 24px 80px;
+      background: radial-gradient(ellipse at 60% 20%, #3a0d2e 0%, var(--escuro) 55%);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(192,56,107,0.15) 0%, transparent 70%);
+      top: -200px; right: -200px; pointer-events: none;
+    }
+    .avatar {
+      width: 110px; height: 110px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--rosa-escuro), var(--rosa));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; margin-bottom: 28px;
+      box-shadow: 0 0 0 4px rgba(192,56,107,0.2), 0 0 0 8px rgba(192,56,107,0.08);
+      animation: fadeDown 0.7s ease both;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(192,56,107,0.12); border: 1px solid rgba(192,56,107,0.35);
+      color: #e87aaa; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 6px 18px; border-radius: 100px; margin-bottom: 24px;
+      animation: fadeDown 0.8s ease both 0.05s;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 900; line-height: 1.05;
+      margin-bottom: 18px; animation: fadeDown 0.9s ease both 0.1s;
+    }
+    .hero h1 span { color: var(--rosa); display: block; }
+    .hero .sub {
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem); color: rgba(255,255,255,0.55);
+      max-width: 540px; line-height: 1.8; margin-bottom: 40px;
+      animation: fadeDown 1s ease both 0.2s;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; animation: fadeDown 1s ease both 0.3s; }
+    .btn { padding: 13px 28px; border-radius: 100px; font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-primary { background: var(--rosa); color: #fff; box-shadow: 0 4px 20px rgba(192,56,107,0.35); }
+    .btn-primary:hover { background: var(--rosa-escuro); transform: translateY(-2px); }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.8); }
+    .btn-outline:hover { border-color: var(--rosa); color: #e87aaa; transform: translateY(-2px); }
+
+    .stats {
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 40px 24px; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--rosa); font-weight: 700; }
+    .stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-top: 4px; }
+
+    section { padding: 90px 24px; }
+    .container { max-width: 920px; margin: 0 auto; }
+    .section-label { font-size: 0.76rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rosa); font-weight: 500; margin-bottom: 10px; display: block; }
+    h2.titulo { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 14px; line-height: 1.2; }
+    .desc { color: rgba(255,255,255,0.5); font-size: 1rem; line-height: 1.8; margin-bottom: 48px; max-width: 600px; }
+
+    .sobre { background: #fff; color: var(--escuro); }
+    .sobre .section-label { color: var(--rosa); }
+    .sobre h2.titulo { color: var(--escuro); }
+    .sobre .desc { color: #666; }
+    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .sobre-texto p { font-size: 1rem; color: #555; line-height: 1.85; margin-bottom: 16px; }
+    .sobre-texto strong { color: var(--rosa); }
+    .sobre-info { display: flex; flex-direction: column; gap: 16px; }
+    .info-item { display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--rosa-claro); border-radius: 12px; border-left: 3px solid var(--rosa); }
+    .info-item .icon { font-size: 1.4rem; flex-shrink: 0; }
+    .info-item h4 { font-size: 0.85rem; font-weight: 600; color: var(--rosa-escuro); margin-bottom: 2px; }
+    .info-item p { font-size: 0.85rem; color: #666; line-height: 1.5; }
+
+    .exp { background: var(--escuro2); }
+    .timeline { display: flex; flex-direction: column; gap: 20px; }
+    .timeline-item { display: flex; gap: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 28px; transition: border-color 0.2s; }
+    .timeline-item:hover { border-color: rgba(192,56,107,0.3); }
+    .timeline-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--rosa); flex-shrink: 0; margin-top: 6px; box-shadow: 0 0 0 4px rgba(192,56,107,0.15); }
+    .timeline-content h3 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+    .timeline-content .periodo { font-size: 0.8rem; color: #e87aaa; margin-bottom: 8px; display: block; }
+    .timeline-content p { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+    .projetos { background: var(--escuro); }
+    .projetos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .projeto-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; transition: all 0.25s; display: flex; flex-direction: column; gap: 12px; }
+    .projeto-card:hover { border-color: rgba(192,56,107,0.35); background: rgba(192,56,107,0.05); transform: translateY(-3px); }
+    .projeto-card.destaque { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 28px; }
+    .projeto-emoji { font-size: 2.2rem; flex-shrink: 0; }
+    .projeto-card h3 { font-size: 1rem; font-weight: 600; }
+    .projeto-card p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.65; flex: 1; }
+    .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag { background: rgba(192,56,107,0.12); color: #e87aaa; font-size: 0.72rem; padding: 3px 10px; border-radius: 100px; }
+    .projeto-link { color: #e87aaa; text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 4px; margin-top: 4px; transition: gap 0.2s; width: fit-content; }
+    .projeto-link:hover { gap: 8px; }
+
+    .habilidades { background: var(--escuro2); }
+    .hab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .hab-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 24px; text-align: center; transition: all 0.2s; }
+    .hab-card:hover { border-color: rgba(192,56,107,0.3); transform: translateY(-2px); }
+    .hab-card .icon { font-size: 2rem; margin-bottom: 10px; }
+    .hab-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+    .hab-card p { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+
+    .contato { background: linear-gradient(135deg, var(--rosa-escuro), var(--rosa)); text-align: center; padding: 80px 24px; }
+    .contato h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 12px; }
+    .contato p { color: rgba(255,255,255,0.8); margin-bottom: 36px; font-size: 1rem; }
+    .contato-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .contato-links a { background: rgba(255,255,255,0.15); color: #fff; text-decoration: none; padding: 12px 26px; border-radius: 100px; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.25); transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+    .contato-links a:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); }
+
+    footer { background: #0c0b14; color: rgba(255,255,255,0.25); text-align: center; padding: 24px; font-size: 0.82rem; }
+
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 700px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .sobre-grid { grid-template-columns: 1fr; }
+      .projetos-grid { grid-template-columns: 1fr; }
+      .projeto-card.destaque { flex-direction: column; }
+      .stats { gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">MA</div>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="avatar">👩‍💻</div>
+    <span class="badge">✦ Engenharia de Software</span>
+    <h1>Marilia Arruda<span>dos Santos</span></h1>
+    <p class="sub">Estudante de Engenharia de Software com experiência em TI, apaixonada por lógica de programação, banco de dados e desenvolvimento de soluções que impactam a comunidade.</p>
+    <div class="hero-btns">
+      <a href="https://github.com/mariliaarrudadossantos-code/portifolio-hub" target="_blank" class="btn btn-primary">🐙 Ver Repositório</a>
+      <a href="https://www.linkedin.com/in/marilia-santos-b408693b8" target="_blank" class="btn btn-outline">💼 LinkedIn</a>
+      <a href="mailto:mariliaarrudadossantos@gmail.com" class="btn btn-outline">✉️ Contato</a>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Anos em TI</div></div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-label">Projetos Acadêmicos</div></div>
+    <div class="stat"><div class="stat-num">1</div><div class="stat-label">Projeto de Extensão</div></div>
+    <div class="stat"><div class="stat-num">1</div><div class="stat-label">Certificação</div></div>
+  </div>
+
+  <section class="sobre" id="sobre">
+    <div class="container">
+      <span class="section-label">Sobre mim</span>
+      <h2 class="titulo">Quem sou eu?</h2>
+      <div class="sobre-grid">
+        <div class="sobre-texto">
+          <p>Sou estudante de <strong>Engenharia de Software</strong>, moradora de Planaltina-DF, com uma trajetória que une experiência prática em suporte técnico e aprendizado acadêmico em desenvolvimento de software.</p>
+          <p>Tenho participado ativamente de um <strong>projeto de extensão em parceria com o IFB Campus Planaltina</strong>, desenvolvendo soluções tecnológicas para auxiliar no cadastramento de suínos do campus, contribuindo para o controle de alimentação e procriação dos animais.</p>
+          <p>Estou em constante evolução, aprimorando meus conhecimentos em <strong>lógica de programação com Portugol</strong>, modelagem de banco de dados e boas práticas de versionamento com Git e GitHub.</p>
+        </div>
+        <div class="sobre-info">
+          <div class="info-item"><div class="icon">🎓</div><div><h4>Formação</h4><p>Engenharia de Software — Em andamento</p></div></div>
+          <div class="info-item"><div class="icon">📍</div><div><h4>Localização</h4><p>Planaltina, Distrito Federal — Brasil</p></div></div>
+          <div class="info-item"><div class="icon">📜</div><div><h4>Certificação</h4><p>Fundamentos de TI: Software e Hardware — Fundação Bradesco (março/2026)</p></div></div>
+          <div class="info-item"><div class="icon">✉️</div><div><h4>E-mail</h4><p>mariliaarrudadossantos@gmail.com</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="exp" id="experiencia">
+    <div class="container">
+      <span class="section-label">Trajetória</span>
+      <h2 class="titulo">Experiência & Formação</h2>
+      <p class="desc">Minha jornada combinando experiência prática e aprendizado acadêmico.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Projeto de Extensão — IFB Campus Planaltina</h3>
+            <span class="periodo">2025 — Presente</span>
+            <p>Desenvolvimento de solução tecnológica em parceria com o Instituto Federal de Brasília para aprimorar o sistema de cadastramento de suínos do campus, auxiliando no controle de alimentação e procriação dos animais.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Técnico de TI — Loja Local</h3>
+            <span class="periodo">2022 — 2025</span>
+            <p>Responsável pela manutenção de dispositivos eletrônicos e suporte técnico aos funcionários, auxiliando na utilização de equipamentos e sistemas. Desenvolveu habilidades de resolução de problemas e atendimento ao usuário.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Certificação — Fundamentos de TI: Software e Hardware</h3>
+            <span class="periodo">Março de 2026</span>
+            <p>Curso de fundamentos de tecnologia da informação pela Fundação Bradesco, abrangendo conceitos de software, hardware e infraestrutura tecnológica.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projetos" id="projetos">
+    <div class="container">
+      <span class="section-label">Portfólio</span>
+      <h2 class="titulo">Projetos</h2>
+      <p class="desc">Projetos acadêmicos e pessoais que demonstram minha evolução como desenvolvedora.</p>
+      <div class="projetos-grid">
+        <div class="projeto-card destaque">
+          <div class="projeto-emoji">🐷</div>
+          <div>
+            <h3>Sistema de Cadastro Suinícola — IFB</h3>
+            <p>Projeto de extensão em parceria com o IFB Campus Planaltina que visa aprimorar o método de cadastramento dos suínos do campus, auxiliando no controle de alimentação e procriação. Desenvolvido em conjunto com a comunidade acadêmica.</p>
+            <div class="tags"><span class="tag">Extensão Universitária</span><span class="tag">IFB Campus Planaltina</span><span class="tag">Em desenvolvimento</span></div>
+          </div>
+        </div>
+        <div class="projeto-card">
+          <div class="projeto-emoji">🗄️</div>
+          <h3>DER Spotify — Banco de Dados</h3>
+          <p>Modelagem conceitual completa do banco de dados do Spotify, com entidades como usuário, música, playlist, artista, álbum, podcast e histórico de reprodução.</p>
+          <div class="tags"><span class="tag">Banco de Dados</span><span class="tag">DER</span><span class="tag">Modelagem Conceitual</span></div>
+          <a href="https://github.com/mariliaarrudadossantos-code/portifolio-hub" target="_blank" class="projeto-link">Ver no GitHub →</a>
+        </div>
+        <div class="projeto-card">
+          <div class="projeto-emoji">💻</div>
+          <h3>Algoritmos em Portugol</h3>
+          <p>Exercícios de lógica de programação desenvolvidos no VisuAlg: contagem, soma de números, tabuada e outros algoritmos para aprimorar o raciocínio lógico.</p>
+          <div class="tags"><span class="tag">Portugol</span><span class="tag">VisuAlg</span><span class="tag">Lógica de Programação</span></div>
+          <a href="https://github.com/mariliaarrudadossantos-code/portifolio-hub" target="_blank" class="projeto-link">Ver no GitHub →</a>
+        </div>
+        <div class="projeto-card">
+          <div class="projeto-emoji">🌐</div>
+          <h3>Portfólio Hub</h3>
+          <p>Repositório organizado com projetos acadêmicos e pessoais, versionado com Git e publicado via GitHub Pages como página web profissional.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Git</span><span class="tag">GitHub Pages</span></div>
+          <a href="https://github.com/mariliaarrudadossantos-code/portifolio-hub" target="_blank" class="projeto-link">Ver no GitHub →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="habilidades" id="habilidades">
+    <div class="container">
+      <span class="section-label">Competências</span>
+      <h2 class="titulo">Habilidades</h2>
+      <p class="desc">Tecnologias e ferramentas que estou estudando e aplicando nos projetos.</p>
+      <div class="hab-grid">
+        <div class="hab-card"><div class="icon">🌐</div><h3>HTML & CSS</h3><p>Criação de páginas web estruturadas e estilizadas.</p></div>
+        <div class="hab-card"><div class="icon">🐙</div><h3>Git & GitHub</h3><p>Versionamento, commits, push e GitHub Pages.</p></div>
+        <div class="hab-card"><div class="icon">💡</div><h3>Portugol / VisuAlg</h3><p>Lógica de programação com algoritmos estruturados.</p></div>
+        <div class="hab-card"><div class="icon">🗄️</div><h3>Banco de Dados</h3><p>Modelagem conceitual e Diagrama Entidade-Relacionamento.</p></div>
+        <div class="hab-card"><div class="icon">🔧</div><h3>Suporte Técnico</h3><p>Manutenção de dispositivos e atendimento ao usuário.</p></div>
+        <div class="hab-card"><div class="icon">📚</div><h3>Aprendizado Contínuo</h3><p>Sempre buscando evoluir e aprender novas tecnologias.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contato" id="contato">
+    <div class="container">
+      <h2>Vamos nos conectar?</h2>
+      <p>Estou aberta a oportunidades, colaborações e aprendizados!</p>
+      <div class="contato-links">
+        <a href="https://github.com/mariliaarrudadossantos-code" target="_blank">🐙 GitHub</a>
+        <a href="https://www.linkedin.com/in/marilia-santos-b408693b8" target="_blank">💼 LinkedIn</a>
+        <a href="mailto:mariliaarrudadossantos@gmail.com">✉️ E-mail</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Marilia Arruda dos Santos — Engenharia de Software ✦</p>
+  </footer>
+
+</body>
+</html>
