@@ -10,8 +10,12 @@
 
 ## 👤 Sobre mim
 
-Sou estudante de **Engenharia de Software**, moradora de Planaltina-DF, com experiência prática em suporte técnico e aprendizado contínuo em desenvolvimento de software. Participo de um projeto de extensão em parceria com o **IFB Campus Planaltina** e estou constantemente aprimorando minhas habilidades em lógica de programação, banco de dados e versionamento de código.
+## 👤 Sobre mim
 
+Estudante de **Engenharia de Software**, residente em Brasília-DF. Já atuei em um projeto de extensão em parceria com o **Instituto Federal de Brasília (Campus Planaltina)**, onde apliquei e aprimorei conhecimentos em lógica de programação, banco de dados e versionamento de código (Git/GitHub). Colaborei também, em conjunto com os demais desenvolvedores,  no desenvolvimento do protótipo **NEXO**, um projeto acadêmico de aplicativo mobile voltado para mulheres em situação de risco doméstico, estruturado com metodologia de Design Thinking. 
+  Como profissional, meu objetivo é construir um perfil que utilize a tecnologia para ajudar o próximo.
+
+---
 ---
 
 ## 🗂️ Estrutura do Repositório
@@ -32,28 +36,28 @@ portifolio-hub/
 ## 🚀 Projetos
 
 ### 🐷 Sistema de Cadastro Suinícola — IFB
-> Projeto de Extensão | 2025 — Presente
+> Projeto de Extensão | 2026 
 
-Desenvolvimento de solução tecnológica em parceria com o **Instituto Federal de Brasília (Campus Planaltina)** para aprimorar o método de cadastramento dos suínos do campus, auxiliando no controle de alimentação e procriação dos animais.
+Desenvolvimento de solução tecnológica em parceria com o **Instituto Federal de Brasília (Campus Planaltina)** para aprimorar o método de cadastramento dos suínos do campus, auxiliando no controle de alimentação e procriação dos animais através da digitalização das planilhas utilizadas.
 
-**Status:** Em desenvolvimento  
-**Tecnologias:** A definir conforme evolução do projeto
+**Status:** Finalizado  
+**Tecnologias:** Microsoft Forms + Excel
 
 ---
 
 ### 🗄️ DER Spotify — Banco de Dados
 > Projeto Acadêmico | 2026
 
-Modelagem conceitual completa do banco de dados do Spotify, incluindo as entidades: usuário, música, playlist, artista, álbum, podcast, episódio e histórico de reprodução, com todos os relacionamentos mapeados.
+Modelagem completa do banco de dados do Spotify, abrangendo as etapas conceitual e lógica, incluindo as entidades, relacionamentos e atributos, com todos os relacionamentos mapeados. Inclui também o dicionário de dados completo, detalhando atributos, tipos e restrições de cada entidade.
 
-**Tecnologias:** Modelagem Conceitual, DER, Banco de Dados Relacional
+**Tecnologias:** Modelagem Conceitual, Modelagem Lógica, Dicionário de Dados, DER, Banco de Dados Relacionais
 
 ---
 
 ### 💻 Algoritmos em Portugol
 > Projeto Acadêmico | 2026
 
-Exercícios de lógica de programação desenvolvidos no **VisuAlg**, incluindo: contagem de 1 a 10, soma de cinco números e tabuada. Desenvolvidos para aprimorar o raciocínio lógico e a base de programação.
+Exercícios de lógica de programação desenvolvidos no **VisuAlg**, incluindo: calculo de notas em porcentagem, calculo do IMC, operações matematicas e aplicações logicas, desenvolvidos para aprimorar o raciocínio lógico e a base de programação.
 
 **Tecnologias:** Portugol, VisuAlg
 
@@ -73,8 +77,9 @@ Repositório organizado com projetos acadêmicos e pessoais, versionado com Git 
 | Área | Tecnologias |
 |------|------------|
 | Front-end | HTML, CSS |
-| Lógica de Programação | Portugol, VisuAlg |
-| Banco de Dados | Modelagem Conceitual, DER |
+| Lógica de Programação | Portugol, VisuAlg, Python |
+| Banco de Dados  | Modelagem Conceitual, Modelagem Lógica, Dicionário de Dados, DER, Banco de Dados Relacionais
+ |
 | Versionamento | Git, GitHub |
 | Suporte Técnico | Manutenção de Hardware, Atendimento ao Usuário |
 
@@ -82,8 +87,8 @@ Repositório organizado com projetos acadêmicos e pessoais, versionado com Git 
 
 ## 📋 Experiência
 
-- 🏛️ **Projeto de Extensão — IFB Campus Planaltina** *(2025 — Presente)*
-- 🔧 **Técnico de TI — Loja Local** *(2022 — 2025)*
+- 🏛️ **Projeto de Extensão — IFB Campus Planaltina** *(2026)*
+- 🔧 **Técnico de TI — Loja Local** *(2023 — 2026)*
 - 📜 **Certificação Fundação Bradesco** — Fundamentos de TI: Software e Hardware *(março/2026)*
 
 ---
